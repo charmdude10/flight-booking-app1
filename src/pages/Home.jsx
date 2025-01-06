@@ -23,21 +23,20 @@ function Home() {
           <p className="text-black font-bold text-center">
             Choose From Over 450 Airlines Worldwide
           </p>
-          <div className="m-3 font-serif font-semibold">
-            <button className="bg-[#01004D] p-2 rounded-xl">BOOK NOW</button>
-          </div>
         </div>
       </div>
 
       {/* Flight Search Section */}
 
-      <div className="bg-[#01004D]  shadow-lg rounded-lg mx-auto mt-[-3rem] w-9/12 max-w-9xl p-6 relative">
-        <div className="flex justify-between items-center space-x-4">
-          <div className="flex items-center space-x-2">
+      <div className="flex flex-col gap-5 bg-[#01004D]  shadow-lg rounded-lg mx-auto mt-[-3rem] w-9/12 max-w-9xl p-6 relative">
+        <div className="flex justify-start gap-4 items-center ">
+          <div className="flex items-center ">
             <input type="radio" id="oneWay" name="tripType" defaultChecked />
             <label htmlFor="oneWay" className="text-white">
               One-way
             </label>
+          </div>
+          <div className="flex items-center ">
             <input type="radio" id="roundTrip" name="tripType" />
             <label htmlFor="roundTrip" className="text-white">
               Roundtrip
@@ -45,39 +44,61 @@ function Home() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-10 gap-1 mt-2 w-full text-white text-sm">
-          <p className="flex">Departure City</p>
-          <input
-            type="text"
-            placeholder="Departure City"
-            className="border rounded-lg text-black p-1 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-          />
-          <p>Destination City</p>
-          <input
-            type="text"
-            placeholder="Destination City"
-            className="border rounded-lg text-black p-1 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-          />
-          <p>Departure Date</p>
-          <input
-            type="date"
-            placeholder="Departure Date"
-            className="border rounded-lg text-black p-1 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-          />
-          <p>Return Date</p>
-          <input
-            type="date"
-            placeholder="Return Date"
-            className="border rounded-lg text-black p-1 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-          />
-          <p>Cabin class</p>
-          <select
-            className="border rounded-lg text-black p-1 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-            defaultValue="Domestic"
-          >
-            <option>Domestic</option>
-            <option>International</option>
-          </select>
+        <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5  gap-4 w-full text-white text-sm">
+          <div>
+            
+            <p className="flex">Departure City</p>
+            <input
+              type="text"
+              placeholder="Departure City"
+              className="border rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+            />
+          </div>
+
+          <div>
+            <p>Destination City</p>
+            <input
+              type="text"
+              placeholder="Destination City"
+              className="border rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+            />
+          </div>
+          <div>
+            
+            <p>Departure Date</p>
+            <input
+              type="date"
+              placeholder="Departure Date"
+              className="border rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+            />
+          </div>
+
+          <div>
+            <p>Return Date</p>
+            <input
+              type="date"
+              placeholder="Return Date"
+              className="border rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+            />
+          </div>
+
+          <div>
+            
+            <p>Cabin class</p>
+            <select
+              className="border rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+              defaultValue="Domestic"
+            >
+              <option>Domestic</option>
+              <option>International</option>
+            </select>
+          </div>
+        </div>
+
+        <div className=" font-serif font-semibold w-full flex justify-start items-center pt-1">
+          <button className="bg-white p-2 rounded-xl border-2 hover:bg-[#01004D] hover:text-white transition ease-in-out duration-500 border-white ">
+            BOOK NOW
+          </button>
         </div>
       </div>
 
