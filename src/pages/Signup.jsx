@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
 
 const Signup = () => {
   return (
@@ -47,19 +48,13 @@ const Signup = () => {
         </form>
 
         <div className="mt-6 text-center">
-          <p className="text-sm text-gray-500 mb-2">Or Sign Up With</p>
+          <p className="text-sm text-gray-500 mb-2">Or Login With</p>
           <div className="flex justify-center space-x-4">
             <a
               href="#"
-              className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300"
+              className="px-4 py-2 text-white rounded-lg font-bold hover:bg-red-600 transition duration-300 text-2xl"
             >
-              Google
-            </a>
-            <a
-              href="#"
-              className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition duration-300"
-            >
-              Apple
+              <FcGoogle />
             </a>
           </div>
         </div>

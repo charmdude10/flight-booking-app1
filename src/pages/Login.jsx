@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import { FcGoogle } from "react-icons/fc";
-// import { FaApple } from "react-icons/fa6";
+import { FcGoogle } from "react-icons/fc";
 
 
 const Login = () => {
@@ -51,17 +50,9 @@ const Login = () => {
           <div className="flex justify-center space-x-4">
             <a
               href="#"
-              className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300"
+              className="px-4 py-2 text-white rounded-lg font-bold hover:bg-red-600 transition duration-300 text-2xl"
             >
-              {/* <FcGoogle /> */}
-              Google
-            </a>
-            <a
-              href="#"
-              className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition duration-300"
-            >
-              {/* <FaApple /> */}
-              Apple
+              <FcGoogle />
             </a>
           </div>
         </div>

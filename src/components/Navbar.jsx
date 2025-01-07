@@ -20,7 +20,8 @@ function CustomNavbar() {
           <div className="flex gap-3">
             <button className="bg-blue-500 rounded-lg p-2 text-white">
               <Link to="/login">
-                <FaUserCircle />
+                {/* <FaUserCircle /> */}
+                Login
               </Link>
             </button>
             {/* <Link to="/signup">
