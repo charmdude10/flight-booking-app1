@@ -1,6 +1,5 @@
 import React from "react";
 import { Card } from "flowbite-react";
-import { IoIosSearch } from "react-icons/io";
 
 function Home() {
   return (
@@ -93,9 +92,9 @@ function Home() {
           </div>
         </div>
 
-        <div className=" font-serif font-semibold w-full flex justify-start items-center">
-          <button className="bg-white gap-2 pt-1 pb-1 px-2 flex items-center rounded-xl border-2 hover:bg-[#01004D] hover:text-white transition ease-in-out duration-500 border-white text-sm ">
-            Search <IoIosSearch />
+        <div className=" font-serif font-semibold w-full flex justify-start items-center pt-1">
+          <button className="bg-white p-2 rounded-xl border-2 hover:bg-[#01004D] hover:text-white transition ease-in-out duration-500 border-white ">
+            BOOK NOW
           </button>
         </div>
       </div>
