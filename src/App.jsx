@@ -7,14 +7,16 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // import Banner from "./components/Banner";
-
 
 function App() {
   return (
     <>
       <Router>
         <Navbar />
+        <ToastContainer />
         {/* <Banner /> */}
         <Routes>
           <Route path="/" element={<Home />} />
