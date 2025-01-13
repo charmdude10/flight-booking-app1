@@ -16,9 +16,9 @@ function CustomNavbar() {
             Flight Logo
           </span>
         </Navbar.Brand>
-        <div className="flex md:order-2 px-10">
+        <div className="flex md:order-2 px-10 text-sm">
           <div className="flex gap-3">
-            <button className="bg-blue-500 rounded-lg p-2 text-white">
+            <button className="bg-blue-500 rounded-lg p-2 text-white  hover:bg-blue-600">
               <Link to="/login">
                 {/* <FaUserCircle /> */}
                 Login
