@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navbar } from "flowbite-react";
 import { Link } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 function CustomNavbar() {
+  // const [UserRole, setUserRole] = useState();
+  const [isUser, setIsUser] = useState(false);
+
   return (
     <>
       <Navbar fluid className=" px-44  bg-white h-35 ">
@@ -19,10 +22,7 @@ function CustomNavbar() {
         <div className="flex md:order-2 px-10 text-sm">
           <div className="flex gap-3">
             <button className="bg-blue-500 rounded-lg p-2 text-white  hover:bg-blue-600">
-              <Link to="/login">
-                {/* <FaUserCircle /> */}
-                Login
-              </Link>
+              <Link to="/login">{isUser ? <FaUserCircle /> : ` Login`}</Link>
             </button>
             {/* <Link to="/signup">
               Dont have an account?{" "}

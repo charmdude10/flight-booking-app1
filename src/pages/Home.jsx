@@ -28,7 +28,7 @@ function Home() {
 
       {/* Flight Search Section */}
 
-      <div className="flex flex-col gap-5 bg-[#01004D]  shadow-lg rounded-lg mx-auto mt-[-3rem] w-9/12 max-w-9xl p-6 relative">
+      <div className="flex flex-col gap-8 bg-[#01004D]  shadow-lg rounded-lg mx-auto mt-[-3rem] w-9/12 max-w-9xl p-6 relative">
         <div className="flex justify-start gap-4 items-center ">
           <div className="flex items-center ">
             <input type="radio" id="oneWay" name="tripType" defaultChecked />
@@ -92,9 +92,9 @@ function Home() {
           </div>
         </div>
 
-        <div className=" font-serif font-semibold w-full flex justify-start items-center pt-1">
-          <button className="bg-white p-2 rounded-xl border-2 hover:bg-[#01004D] hover:text-white transition ease-in-out duration-500 border-white ">
-            BOOK NOW
+        <div className=" font-serif font-semibold w-full flex justify-center items-center pt-1">
+          <button className="bg-white p-2 rounded-xl border-2 hover:bg-[#01004D] hover:text-white transition ease-in-out duration-500 border-white w-1/3 ">
+            Search
           </button>
         </div>
       </div>
