@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 function CustomNavbar() {
   // const [UserRole, setUserRole] = useState();
-  const [isUser, setIsUser] = useState(false);
+  const [isUser, setIsUser] = useState(true);
 
   return (
     <>
