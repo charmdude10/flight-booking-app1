@@ -24,12 +24,12 @@ function CustomNavbar() {
             <button className="bg-blue-500 rounded-lg p-2 text-white  hover:bg-blue-600">
               <Link to="/login">{isUser ? <FaUserCircle /> : ` Login`}</Link>
             </button>
-            {/* <Link to="/signup">
+            <Link to="/signup">
               Dont have an account?{" "}
               <button className="bg-red-500 rounded-lg pt-1 pb-1 pl-2 pr-2 text-white">
                 Signup
               </button>
-            </Link> */}
+            </Link>
           </div>
 
           <Navbar.Toggle />

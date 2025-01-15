@@ -94,7 +94,7 @@ function Home() {
 
         <div className=" font-serif font-semibold w-full flex justify-center items-center pt-1">
           <button className="bg-white p-2 rounded-xl border-2 hover:bg-[#01004D] hover:text-white transition ease-in-out duration-500 border-white w-1/3 ">
-            Search
+            Search flights
           </button>
         </div>
       </div>

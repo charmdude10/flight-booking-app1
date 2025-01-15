@@ -17,7 +17,9 @@ const Dashboard = () => {
           <div className="w-full h-[100vh] dash lg:w-[75%] bg-[#e6e6e6]"></div>
         </div>
       ) : (
-        <div className="w-full h-[100vh] bg-red-500"></div>
+        <div className="w-full h-[100vh] bg-red-500 flex">
+          <div >mmmmm</div>
+        </div>
       )}
     </div>
   );
