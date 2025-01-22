@@ -3,7 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 // import { FcGoogle } from "react-icons/fc";
 // import { FaApple } from "react-icons/fa6";
 import { toast } from "react-toastify";
-import AuthContext from "../stateManagement/Auth";
+// import AuthContext from "../stateManagement/Auth";
+import AuthContext from "../../stateManagement/Auth";
 
 const Login = () => {
   const [email, setEmail] = useState("");

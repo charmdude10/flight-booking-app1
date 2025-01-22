@@ -1,7 +1,8 @@
 import { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import AuthContext from "../stateManagement/Auth";
+// import AuthContext from "../stateManagement/Auth";
+import AuthContext from "../../stateManagement/Auth";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
@@ -41,7 +42,15 @@ const Signup = () => {
   }, [user, message]);
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
+    <div
+      className="flex justify-center items-center h-[80vh]"
+      style={{
+        backgroundImage: "url('/img/illustration-flying-airplane.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-bold text-center mb-6">Create Account</h2>
         <form onSubmit={handleRegister}>

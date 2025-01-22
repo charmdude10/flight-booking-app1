@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 // import { Link, useNavigate } from "react-router-dom";
-import AuthContext from "../stateManagement/Auth";
+// import AuthContext from "../stateManagement/Auth";
+import AuthContext from "../../stateManagement/Auth";
 import { Loader, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 

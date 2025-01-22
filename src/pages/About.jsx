@@ -68,7 +68,7 @@ const About = () => {
             support team.
           </p>
           <a
-            href="abioyemichael4@gmail.com"
+            href="#"
             className="mt-6 inline-block px-8 py-3 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition duration-300"
           >
             Contact Us
