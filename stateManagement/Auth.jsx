@@ -151,6 +151,26 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const logout = async () => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      await fetch(`${API_URL}/auth/logout`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      setUser(null);
+      setIsAuthenticated(false);
+      setIsLoading(false);
+    } catch (error) {
+      setError(error.message || "Error logging out");
+      setIsLoading(false);
+      throw error;
+    }
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -166,6 +186,7 @@ export const AuthProvider = ({ children }) => {
         verifyEmail,
         forgotPassword,
         resetPassword,
+        logout,
       }}
     >
       {children}

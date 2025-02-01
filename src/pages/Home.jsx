@@ -1,6 +1,6 @@
 import React from "react";
 import { Card } from "flowbite-react";
-
+import { Link } from "react-router-dom";
 function Home() {
   return (
     <div className="bg-gray-50 min-h-screen ">
@@ -93,9 +93,12 @@ function Home() {
         </div>
 
         <div className=" font-serif font-semibold w-full flex justify-center items-center pt-1">
-          <button className="bg-white p-2 rounded-xl border-2 hover:bg-[#01004D] hover:text-white transition ease-in-out duration-500 border-white w-1/3 ">
-            Search flights
-          </button>
+          <Link
+            to="/flightsearch"
+            className="flex justify-center items-center bg-white p-2 rounded-xl border-2 hover:bg-[#01004D] hover:text-white transition ease-in-out duration-500 border-white w-1/3 "
+          >
+            <button>Search flights</button>
+          </Link>
         </div>
       </div>
 

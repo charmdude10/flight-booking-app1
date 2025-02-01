@@ -18,9 +18,6 @@ import Dashboard from "./Dashboard/Dashboard";
 import ForgetPassword from "./pages/ForgetPassword";
 import ResetLink from "./pages/ResetLink";
 import EmailVerificationPage from "./pages/EmailVerificationPage";
-// import Logout from "./components/Logout";
-// import Banner from "./components/Banner";
-// import AuthContext from "./stateManagement/Auth";
 
 // protected routes that require authentication
 
@@ -60,14 +57,14 @@ function App() {
       <Router>
         <Navbar />
         <ToastContainer />
-        {/* <Banner /> */}
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/forgetpassword" element={<ForgetPassword />} />
           <Route path="/reset-password/:token" element={<ResetLink />} />
-          {/* <Route path="/logout" element={<Logout />} /> */}
+
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
