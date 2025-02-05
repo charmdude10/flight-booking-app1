@@ -35,16 +35,19 @@ function CustomNavbar() {
   return (
     <>
       <Navbar fluid className=" px-44  bg-white h-35 ">
-        <Navbar.Brand className="px-10">
-          <img
-            src="/img/flight1.png"
-            className="mr-3 h-6 sm:h-9"
-            alt="Flowbite React Logo"
-          />
-          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-            Flight Logo
-          </span>
-        </Navbar.Brand>
+        <Link to="/home" className="flex items-center ">
+          <Navbar.Brand className="px-10">
+            <img
+              src="/img/flight1.png"
+              className="mr-3 h-6 sm:h-14"
+              alt="Flowbite React Logo"
+            />
+            <button className="text-2xl font-bold font-serif ">
+              Flight Logo
+            </button>
+          </Navbar.Brand>
+        </Link>
+
         <div className="flex md:order-2 px-10 text-sm">
           <div className="flex gap-3">
             {isAuthenticated ? (
