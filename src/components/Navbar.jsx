@@ -10,11 +10,7 @@ function CustomNavbar() {
   const [dropdownVisible, setDropdownVisible] = useState(false);
   let timeoutId;
 
-  // console.log("thisisauth", isAuthenticated);
 
-  // useEffect(() => {
-  //   console.log("thisisauth", isAuthenticated);
-  // }, [isAuthenticated]);
 
   const handleMouseEnter = () => {
     clearTimeout(timeoutId);

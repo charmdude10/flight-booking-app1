@@ -18,38 +18,9 @@ import Dashboard from "./Dashboard/Dashboard";
 import ForgetPassword from "./pages/ForgetPassword";
 import ResetLink from "./pages/ResetLink";
 import EmailVerificationPage from "./pages/EmailVerificationPage";
+import FlightSearchCard from "./pages/FlightSearchCard";
 
-// protected routes that require authentication
 
-// const ProtectedRoute = ({ children }) => {
-
-//   const {isAuthenticated, user} = useContext(AuthContext);
-
-//   if (!isAuthenticated) {
-//     return <Navigate to="/login" replace />;
-//   }
-
-//   if (!user.isVerified){
-//     return <Navigate to="/email-verification" replace />;
-//   }
-
-//   return children;
-
-// }
-
-//redirect authenticated users and verified users to homepage
-
-// const RedirectAuthenticatedUser = ({ children }) => {
-
-//   const {isAuthenticated, user} = useContext(AuthContext);
-
-//   if (isAuthenticated && user.isVerified) {
-//     return <Navigate to="/" replace />;
-//   }
-
-//   return children;
-
-// }
 
 function App() {
   return (
@@ -68,6 +39,8 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/flightsearchcard" element={<FlightSearchCard />} />
+          
           <Route
             path="/email-verification"
             element={<EmailVerificationPage />}
