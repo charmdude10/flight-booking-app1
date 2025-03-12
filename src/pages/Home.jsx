@@ -1,86 +1,139 @@
 import { Card, Datepicker } from "flowbite-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext, useMemo } from "react";
 import AirportModal from "../components/AirportModal";
 import { Link } from "react-router-dom";
+import AuthContext from "../../stateManagement/Auth";
+import data from "../Data/airportdata.json";
 
 function Home() {
+  const {
+    tripType,
+    setTripType,
+    departureCity,
+    setDepartureCity,
+    destinationCity,
+    setDestinationCity,
+    airports,
+    setAirports,
+    suggestions,
+    setSuggestions,
+    departureDate,
+    setDepartureDate,
+    returnDate,
+    setReturnDate,
+    showModal,
+    setShowModal,
+    activeField,
+    setActiveField,
+    handleInputChange,
+    handleSuggestionClick,
+  } = useContext(AuthContext);
+
+  setAirports(data.data);
+
+  // we call the
+
   //we dynamically call the trip type by using state
-  const [tripType, setTripType] = useState("oneWay");
-  const [departureCity, setDepartureCity] = useState("");
-  const [destinationCity, setDestinationCity] = useState("");
-  const [airports, setAirports] = useState([]);
-  const [suggestions, setSuggestions] = useState([]);
-  const [departureDate, setDepartureDate] = useState("");
-  const [returnDate, setReturnDate] = useState("");
-  const [showModal, setShowModal] = useState(false);
-  const [activeField, setActiveField] = useState("");
+  // const [tripType, setTripType] = useState("oneWay");
+  // const [departureCity, setDepartureCity] = useState("");
+  // const [destinationCity, setDestinationCity] = useState("");
+  // const [airports, setAirports] = useState([]);
+  // const [suggestions, setSuggestions] = useState([]);
+  // const [departureDate, setDepartureDate] = useState("");
+  // const [returnDate, setReturnDate] = useState("");
+  // const [showModal, setShowModal] = useState(false);
+  // const [activeField, setActiveField] = useState("");
 
-  useEffect(() => {
-    const fetchAirports = async () => {
-      const url = "https://sky-scanner3.p.rapidapi.com/flights/airports";
-      const options = {
-        method: "GET",
-        headers: {
-          "x-rapidapi-key":
-            "7c33786fdbmsh8027dd69e06f847p159523jsn4093e0a6cc3d",
-          "x-rapidapi-host": "sky-scanner3.p.rapidapi.com",
-        },
-      };
+  // useEffect(() => {
+  //   const fetchAirports = async () => {
 
-      try {
-        const response = await fetch(url, options);
-        const result = await response.json();
-        setAirports(result.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchAirports();
-  }, []);
+  //     const url = 'https://sky-scanner3.p.rapidapi.com/flights/airports';
+  //     const options = {
+  //       method: 'GET',
+  //       headers: {
+  //         "x-rapidapi-key":
+  //           "7c33786fdbmsh8027dd69e06f847p159523jsn4093e0a6cc3d",
+  //         "x-rapidapi-host": "sky-scanner3.p.rapidapi.com",
+  //       },
+  //     };
 
-  const getSuggestions = (value) => {
-    const inputValue = value.trim().toLowerCase();
-    const inputLength = inputValue.length;
+  //     try {
+  //       const response = await fetch(url, options);
+  //       const result = await response.json();
+  //       setAirports(result.data);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
 
-    return inputLength === 0
-      ? []
-      : airports
-          .filter((airport) =>
-            airport.location
-              ? airport.location.toLowerCase().includes(inputValue)
-              : airport.name.toLowerCase().includes(inputValue) ||
-                airport.iata.toLowerCase().includes(inputValue)
-          )
-          .slice(0, 10);
-  };
+  //   };
+  //   fetchAirports();
+  // }, []);
 
-  //we handleInputChange
-  const handleInputChange = (e, field) => {
-    const value = e.target.value;
-    if (field === "departure") {
-      setDepartureCity(value);
-      setActiveField("departure");
-    } else {
-      setDestinationCity(value);
-      setActiveField("destination");
-    }
-    setSuggestions(getSuggestions(value));
-    if (value === "") {
-      setShowModal(false);
-    } else {
-      setShowModal(true);
-    }
-  };
+  // // useMemo instead of useEffect above
+  // useMemo(() => {
+  //   const fetchAirports = async () => {
 
-  const handleSuggestionClick = (suggestion) => {
-    if (activeField === "departure") {
-      setDepartureCity(`${suggestion.name} (${suggestion.iata})`);
-    } else {
-      setDestinationCity(`${suggestion.name} (${suggestion.iata})`);
-    }
-    setShowModal(false);
-    setSuggestions([]);
-  };
+  //     const url = 'https://sky-scanner3.p.rapidapi.com/flights/airports';
+  //     const options = {
+  //       method: 'GET',
+  //       headers: {
+  //         "x-rapidapi-key":
+  //           "7c33786fdbmsh8027dd69e06f847p159523jsn4093e0a6cc3d",
+  //         "x-rapidapi-host": "sky-scanner3.p.rapidapi.com",
+  //       },
+  //     };
+
+  //     try {
+  //       const response = await fetch(url, options);
+  //       const result = await response.json();
+  //       setAirports(result.data);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+
+  //   };
+  //   fetchAirports();
+  // }, []);
+
+  // const getSuggestions = (value) => {
+  //   const inputValue = value.trim().toLowerCase();
+  //   const inputLength = inputValue.length;
+
+  //   return inputLength === 0
+  //     ? []
+  //     : airports.filter((airport) =>
+  //        airport.location? airport.location.toLowerCase().includes(inputValue) : airport.name.toLowerCase().includes(inputValue) || airport.iata.toLowerCase().includes(inputValue)
+  //       ).slice(0, 10);
+  // };
+
+  // //we handleInputChange
+  // const handleInputChange = (e, field) => {
+  //   const value = e.target.value;
+  //   if (field === "departure") {
+  //     setDepartureCity(value);
+  //     setActiveField("departure");
+  //   } else {
+  //     setDestinationCity(value);
+  //     setActiveField("destination");
+  //   }
+  //   setSuggestions(getSuggestions(value));
+  //   if (value === "") {
+  //     setShowModal(false);
+  //   }else{
+  //     setShowModal(true);
+  //   }
+
+  // };
+
+  // const handleSuggestionClick = (suggestion) => {
+  //   if (activeField === "departure") {
+  //     setDepartureCity(`${suggestion.name} (${suggestion.iata})`);
+  //   } else {
+  //     setDestinationCity(`${suggestion.name} (${suggestion.iata})`);
+  //   }
+  //   setShowModal(false);
+  //   setSuggestions([]);
+  // };
 
   return (
     <div className="bg-gray-50 min-h-screen ">
@@ -111,11 +164,12 @@ function Home() {
       <div className="flex flex-col gap-8 bg-gradient-to-br from-green-400 to-blue-600  shadow-lg rounded-lg mx-auto mt-[-3rem] w-9/12 max-w-9xl p-6 relative">
         <div className="flex justify-start gap-4 items-center ">
           <div className="flex items-center ">
+            {/* <input type="radio" id="oneWay" name="tripType" onChange={() => setTripType("oneWay")} defaultChecked  /> */}
             <input
               type="radio"
               id="oneWay"
               name="tripType"
-              onChange={() => setTripType("oneWay")}
+              onClick={() => setTripType("oneWay")}
               defaultChecked
             />
             <label htmlFor="oneWay" className="text-white">
@@ -123,11 +177,12 @@ function Home() {
             </label>
           </div>
           <div className="flex items-center ">
+            {/* <input type="radio" id="roundTrip" name="tripType" onChange={() => setTripType("roundTrip")} checked={tripType === "roundTrip"} /> */}
             <input
               type="radio"
               id="roundTrip"
               name="tripType"
-              onChange={() => setTripType("roundTrip")}
+              onClick={() => setTripType("roundTrip")}
               checked={tripType === "roundTrip"}
             />
             <label htmlFor="roundTrip" className="text-white">
@@ -307,3 +362,5 @@ function Home() {
 }
 
 export default Home;
+
+
