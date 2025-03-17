@@ -19,7 +19,7 @@ import ForgetPassword from "./pages/ForgetPassword";
 import ResetLink from "./pages/ResetLink";
 import EmailVerificationPage from "./pages/EmailVerificationPage";
 import FlightSearchCard from "./pages/FlightSearchCard";
-import FlightCardDesTesting from "./pages/FlightCardDesTesting";
+
 // import Logout from "./components/Logout";
 // import Banner from "./components/Banner";
 // import AuthContext from "./stateManagement/Auth";
@@ -78,7 +78,6 @@ function App() {
             element={<EmailVerificationPage />}
           />
           <Route path="/flightsearchcard" element={<FlightSearchCard />} />
-          <Route path="/testingcard" element={<FlightCardDesTesting />} />
 
           {/* we catch all routes */}
           <Route path="*" element={<Navigate to="/" replace />} />

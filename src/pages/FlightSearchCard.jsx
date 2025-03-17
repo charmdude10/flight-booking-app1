@@ -1,12 +1,14 @@
-import { Fullscreen } from "lucide-react";
 import FlightSearchDesign from "../components/FlightSearchDesign";
 import { useContext, useState } from "react";
 import AuthContext from "../../stateManagement/Auth";
 import slidesData from "../components/slidesData";
 import FlightDetailsCard from "../components/FlightDetailsCard";
 import FlightDetailsCardResult from "../components/FlightDetailsCardResult";
+import dataResult from "../Data/queryData.json";
 
 const FlightSearchCard = () => {
+  const itineriaries = dataResult?.data?.itineraries;
+
   const {
     setTripType,
     departureCity,
@@ -25,21 +27,15 @@ const FlightSearchCard = () => {
 
   const itemHeight = 160;
   const totalHeight = slidesData.length * (itemHeight * 1.3);
-  // const dragElastic = 0.5;
-  // const dragConstraints = {
-  // top: -totalHeight + window.innerHeight,
-  // bottom: 0,
-  // };
-  // const transition = { type: "tween", duration: 0.5, ease: "easeInOut"
 
   //we paginate
   const [currentPage, setCurrentPage] = useState(1);
   const flightsPerPage = 3;
-  const totalItems = slidesData.length;
+  const totalItems = itineriaries?.length;
   const totalPages = Math.ceil(totalItems / flightsPerPage);
   const startIndex = (currentPage - 1) * flightsPerPage;
   const endIndex = startIndex + flightsPerPage;
-  const currentFlightData = slidesData.slice(startIndex, endIndex);
+  const currentFlightData = itineriaries.slice(startIndex, endIndex);
 
   // function to change the page
   const handlePageChange = (page) => {
@@ -80,9 +76,9 @@ const FlightSearchCard = () => {
         </div>
       </div>
 
-      <div className="flex h-screen">
+      <div className="flex ">
         {/* Filter Section */}
-        <div className="w-1/4 p-4 bg-gray-100">
+        <div className="w-1/4 p-4 bg-gray-100 ">
           <h2 className="text-lg font-semibold mb-4">Filter</h2>
 
           {/* Price Filter Example */}
@@ -99,10 +95,10 @@ const FlightSearchCard = () => {
 
         {/* Results Section */}
         <div
-          className="flex-1 p-4 overflow-hidden"
-          style={{ height: "calc(100vh - 0.5rem)" }}
+          className="flex-1 p-4"
+          // style={{ height: "calc(100vh - 0.5rem)" }}
         >
-          {currentFlightData.map((_, index) => (
+          {currentFlightData.map((item, index) => (
             // <div
             //     key={index}
             //     className="overflow-hidden"
@@ -123,7 +119,7 @@ const FlightSearchCard = () => {
                 className="overflow-hidden"
                 style={{ minHeight: `${itemHeight}px` }}
               >
-                <FlightDetailsCardResult />
+                <FlightDetailsCardResult item={item} />
               </div>
             </>
           ))}
