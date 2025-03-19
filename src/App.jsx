@@ -19,6 +19,8 @@ import ForgetPassword from "./pages/ForgetPassword";
 import ResetLink from "./pages/ResetLink";
 import EmailVerificationPage from "./pages/EmailVerificationPage";
 import FlightSearchCard from "./pages/FlightSearchCard";
+import Payment from "./components/Payment";
+import PaymentSuccess from "./components/PaymentSucess";
 
 // import Logout from "./components/Logout";
 // import Banner from "./components/Banner";
@@ -78,6 +80,21 @@ function App() {
             element={<EmailVerificationPage />}
           />
           <Route path="/flightsearchcard" element={<FlightSearchCard />} />
+          <Route
+            path="/payment"
+            element={
+              <Payment
+                bookingId="123"
+                amount="50000"
+                email="user@example.com"
+              />
+            }
+          />
+
+          <Route
+            path="/payment-success/:transaction_id"
+            element={<PaymentSuccess />}
+          />
 
           {/* we catch all routes */}
           <Route path="*" element={<Navigate to="/" replace />} />
