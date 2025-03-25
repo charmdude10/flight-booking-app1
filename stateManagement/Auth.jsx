@@ -23,6 +23,7 @@ export const AuthProvider = ({ children }) => {
   const [returnDate, setReturnDate] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [activeField, setActiveField] = useState("");
+  const [loading, setLoading] = useState(false);
 
   //functions used for search components
   const getSuggestions = (value) => {
@@ -264,6 +265,8 @@ export const AuthProvider = ({ children }) => {
         setActiveField,
         handleInputChange,
         handleSuggestionClick,
+        loading,
+        setLoading,
       }}
     >
       {children}
