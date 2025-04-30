@@ -21,42 +21,7 @@ import EmailVerificationPage from "./pages/EmailVerificationPage";
 import FlightSearchCard from "./pages/FlightSearchCard";
 import Payment from "./components/Payment";
 import PaymentSuccess from "./components/PaymentSucess";
-
-// import Logout from "./components/Logout";
-// import Banner from "./components/Banner";
-// import AuthContext from "./stateManagement/Auth";
-
-// protected routes that require authentication
-
-// const ProtectedRoute = ({ children }) => {
-
-//   const {isAuthenticated, user} = useContext(AuthContext);
-
-//   if (!isAuthenticated) {
-//     return <Navigate to="/login" replace />;
-//   }
-
-//   if (!user.isVerified){
-//     return <Navigate to="/email-verification" replace />;
-//   }
-
-//   return children;
-
-// }
-
-//redirect authenticated users and verified users to homepage
-
-// const RedirectAuthenticatedUser = ({ children }) => {
-
-//   const {isAuthenticated, user} = useContext(AuthContext);
-
-//   if (isAuthenticated && user.isVerified) {
-//     return <Navigate to="/" replace />;
-//   }
-
-//   return children;
-
-// }
+import Booking from "./pages/Booking";
 
 function App() {
   return (
@@ -80,6 +45,7 @@ function App() {
             element={<EmailVerificationPage />}
           />
           <Route path="/flightsearchcard" element={<FlightSearchCard />} />
+          <Route path="/flight-search/booking" element={<Booking />} />
           <Route
             path="/payment"
             element={

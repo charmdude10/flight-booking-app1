@@ -44,19 +44,6 @@ function Home() {
     }, 2000);
   };
 
-  // we call the
-
-  //we dynamically call the trip type by using state
-  // const [tripType, setTripType] = useState("oneWay");
-  // const [departureCity, setDepartureCity] = useState("");
-  // const [destinationCity, setDestinationCity] = useState("");
-  // const [airports, setAirports] = useState([]);
-  // const [suggestions, setSuggestions] = useState([]);
-  // const [departureDate, setDepartureDate] = useState("");
-  // const [returnDate, setReturnDate] = useState("");
-  // const [showModal, setShowModal] = useState(false);
-  // const [activeField, setActiveField] = useState("");
-
   // useEffect(() => {
   //   const fetchAirports = async () => {
 
@@ -178,7 +165,6 @@ function Home() {
         <div className="flex flex-col gap-8 bg-gradient-to-br from-green-400 to-blue-600  shadow-lg rounded-lg mx-auto mt-[-3rem] w-9/12 max-w-9xl p-6 relative">
           <div className="flex justify-start gap-4 items-center ">
             <div className="flex items-center ">
-              {/* <input type="radio" id="oneWay" name="tripType" onChange={() => setTripType("oneWay")} defaultChecked  /> */}
               <input
                 type="radio"
                 id="oneWay"
@@ -191,7 +177,6 @@ function Home() {
               </label>
             </div>
             <div className="flex items-center ">
-              {/* <input type="radio" id="roundTrip" name="tripType" onChange={() => setTripType("roundTrip")} checked={tripType === "roundTrip"} /> */}
               <input
                 type="radio"
                 id="roundTrip"
@@ -280,7 +265,7 @@ function Home() {
           <div className=" font-serif font-semibold w-full flex justify-center items-center pt-1">
             <div
               className="flex justify-center items-center bg-white p-2 rounded-xl border-2 hover:bg-[#01004D] hover:text-white
-              transition ease-in-out duration-500 border-white w-1/3 "
+                      transition ease-in-out duration-500 border-white w-1/3 "
             >
               <button type="submit">Search flights</button>
             </div>

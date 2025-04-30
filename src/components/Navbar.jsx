@@ -2,15 +2,19 @@ import { useContext, useState } from "react";
 import { Navbar } from "flowbite-react";
 import { Link } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
-
 import AuthContext from "../../stateManagement/Auth";
+
 
 function CustomNavbar() {
   const { isAuthenticated, logout } = useContext(AuthContext);
   const [dropdownVisible, setDropdownVisible] = useState(false);
   let timeoutId;
 
+  // console.log("thisisauth", isAuthenticated);
 
+  // useEffect(() => {
+  //   console.log("thisisauth", isAuthenticated);
+  // }, [isAuthenticated]);
 
   const handleMouseEnter = () => {
     clearTimeout(timeoutId);
@@ -31,19 +35,16 @@ function CustomNavbar() {
   return (
     <>
       <Navbar fluid className=" px-44  bg-white h-35 ">
-        <Link to="/home" className="flex items-center ">
-          <Navbar.Brand className="px-10">
-            <img
-              src="/img/flight1.png"
-              className="mr-3 h-6 sm:h-14"
-              alt="Flowbite React Logo"
-            />
-            <button className="text-2xl font-bold font-serif ">
-              Flight Logo
-            </button>
-          </Navbar.Brand>
-        </Link>
-
+        <Navbar.Brand className="px-10">
+          <img
+            src="/img/flight1.png"
+            className="mr-3 h-6 sm:h-9"
+            alt="Flowbite React Logo"
+          />
+          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+            Flight Logo
+          </span>
+        </Navbar.Brand>
         <div className="flex md:order-2 px-10 text-sm">
           <div className="flex gap-3">
             {isAuthenticated ? (
