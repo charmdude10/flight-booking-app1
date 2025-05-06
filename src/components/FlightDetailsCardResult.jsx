@@ -10,7 +10,12 @@ const FlightDetailsCardResult = ({ item }) => {
   const navigate = useNavigate();
 
   const handlebooking = () => {
-    navigate("/flight-search/booking");
+    navigate("/flight-search/booking", {
+      state: {
+        flightPrice: item?.price?.formatted,
+        realFlightnums: item?.price?.raw,
+      },
+    });
   };
 
   const date = new Date(item?.legs[0].departure);
