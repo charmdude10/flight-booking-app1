@@ -19,9 +19,40 @@ import ForgetPassword from "./pages/ForgetPassword";
 import ResetLink from "./pages/ResetLink";
 import EmailVerificationPage from "./pages/EmailVerificationPage";
 import FlightSearchCard from "./pages/FlightSearchCard";
-import Payment from "./components/Payment";
-import PaymentSuccess from "./components/PaymentSucess";
 import Booking from "./pages/Booking";
+
+// import Logout from "./components/Logout";
+// import Banner from "./components/Banner";
+import AuthContext from "../stateManagement/Auth";
+
+// protected routes that require authentication
+
+const ProtectedRoute = ({ children }) => {
+  const { isAuthenticated, user } = useContext(AuthContext);
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
+
+  if (!user.isVerified) {
+    return <Navigate to="/email-verification" replace />;
+  }
+
+  return children;
+};
+
+//redirect authenticated users and verified users to homepage
+
+// const RedirectAuthenticatedUser = ({ children }) => {
+
+//   const {isAuthenticated, user} = useContext(AuthContext);
+
+//   if (isAuthenticated && user.isVerified) {
+//     return <Navigate to="/" replace />;
+//   }
+
+//   return children;
+
+// }
 
 function App() {
   return (
@@ -37,30 +68,23 @@ function App() {
           <Route path="/forgetpassword" element={<ForgetPassword />} />
           <Route path="/reset-password/:token" element={<ResetLink />} />
           {/* <Route path="/logout" element={<Logout />} /> */}
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route
             path="/email-verification"
             element={<EmailVerificationPage />}
           />
-          <Route path="/flightsearchcard" element={<FlightSearchCard />} />
+          <Route path="/flight-search" element={<FlightSearchCard />} />
           <Route path="/flight-search/booking" element={<Booking />} />
-          <Route
-            path="/payment"
-            element={
-              <Payment
-                bookingId="123"
-                amount="50000"
-                email="user@example.com"
-              />
-            }
-          />
-
-          <Route
-            path="/payment-success/:transaction_id"
-            element={<PaymentSuccess />}
-          />
+          {/* <Route path="/booking" element={<Booking />} /> */}
 
           {/* we catch all routes */}
           <Route path="*" element={<Navigate to="/" replace />} />

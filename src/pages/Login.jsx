@@ -1,26 +1,27 @@
 import { useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 // import { FcGoogle } from "react-icons/fc";
 // import { FaApple } from "react-icons/fa6";
 import { toast } from "react-toastify";
-// import AuthContext from "../stateManagement/Auth";
 import AuthContext from "../../stateManagement/Auth";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
 
   const { login } = useContext(AuthContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    const redirectPath = location.state?.from || "/";
     try {
       await login(email, password);
       toast.success("Login successful");
       setEmail("");
       setPassword("");
-      navigate("/");
+      navigate(redirectPath, { replace: true });
     } catch (error) {
       toast.error(error.message);
       console.log(error);
