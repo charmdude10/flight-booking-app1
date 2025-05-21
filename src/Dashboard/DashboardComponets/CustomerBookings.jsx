@@ -9,7 +9,7 @@ import {
   TableRow,
 } from "flowbite-react";
 import { useContext, useEffect, useState } from "react";
-import AuthContext from "../../stateManagement/Auth";
+import AuthContext from "../../../stateManagement/Auth";
 import { Link } from "react-router-dom";
 
 const CustomerBookings = () => {
