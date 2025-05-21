@@ -1,12 +1,14 @@
 import { useContext, useState } from "react";
 import { Navbar } from "flowbite-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import AuthContext from "../../stateManagement/Auth";
 
-
 function CustomNavbar() {
-  const { isAuthenticated, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const { isAuthenticated, logout, setDepartureCity, setDestinationCity } =
+    useContext(AuthContext);
   const [dropdownVisible, setDropdownVisible] = useState(false);
   let timeoutId;
 
@@ -29,6 +31,9 @@ function CustomNavbar() {
 
   const handleLogout = async () => {
     await logout();
+    navigate("/");
+    setDepartureCity("");
+    setDestinationCity("");
     localStorage.removeItem("auth-token");
   };
 
