@@ -19,10 +19,11 @@ import ForgetPassword from "./pages/ForgetPassword";
 import ResetLink from "./pages/ResetLink";
 import EmailVerificationPage from "./pages/EmailVerificationPage";
 import FlightSearchCard from "./pages/FlightSearchCard";
-import Payment from "./components/Payment";
-import PaymentSuccess from "./components/PaymentSucess";
+// import Payment from "./components/Payment";
+// import PaymentSuccess from "./components/PaymentSucess";
 import Booking from "./pages/Booking";
 import AuthContext from "../stateManagement/Auth";
+import AdminDashboard from "./Admin/AdminDashboard";
 
 // protected routes that require authentication
 
@@ -82,8 +83,16 @@ function App() {
             element={<EmailVerificationPage />}
           />
           <Route path="/flightsearchcard" element={<FlightSearchCard />} />
-          <Route path="/flight-search/booking" element={<Booking />} />
+          {/* <Route path="/flight-search/booking" element={<Booking />} /> */}
           <Route
+            path="/flight-search/booking"
+            element={
+              <ProtectedRoute>
+                <Booking />
+              </ProtectedRoute>
+            }
+          />
+          {/* <Route
             path="/payment"
             element={
               <Payment
@@ -92,12 +101,13 @@ function App() {
                 email="user@example.com"
               />
             }
-          />
+          /> */}
 
-          <Route
+          {/* <Route
             path="/payment-success/:transaction_id"
             element={<PaymentSuccess />}
-          />
+          /> */}
+          <Route path="/admin" element={<AdminDashboard />} />
 
           {/* we catch all routes */}
           <Route path="*" element={<Navigate to="/" replace />} />
