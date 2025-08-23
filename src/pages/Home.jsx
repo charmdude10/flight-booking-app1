@@ -37,7 +37,7 @@ function Home() {
   const handleSubmit = (e) => {
     setLoading(true);
     e.preventDefault();
-    navigate("/flightsearchcard");
+    navigate("/FlightSearchCard");
 
     setTimeout(() => {
       setLoading(false);
