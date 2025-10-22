@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const AuthContext = createContext();
 
@@ -24,6 +24,45 @@ export const AuthProvider = ({ children }) => {
   const [showModal, setShowModal] = useState(false);
   const [activeField, setActiveField] = useState("");
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const storedToken = localStorage.getItem("auth-token");
+      if (!storedToken) {
+        setIsLoading(false);
+        return;
+      }
+      try {
+        const response = await fetch(`${API_URL}/auth/me`, {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${storedToken}`,
+          },
+        });
+
+        // console.log("this is response", response)
+
+        if (!response.ok) {
+          setUser(null);
+          setIsAuthenticated(null);
+          setIsLoading(false);
+          return;
+        }
+
+        const data = await response.json();
+        setUser(data.user);
+        setIsAuthenticated(storedToken);
+      } catch (err) {
+        console.error("Error fetching user:", err);
+        setUser(null);
+        setIsAuthenticated(false);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchUser();
+  }, []);
 
   //functions used for search components
   const getSuggestions = (value) => {
@@ -100,6 +139,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const login = async (email, password) => {
+    // console.log("Login called with:", email, password);
     setIsLoading(true);
     setError(null);
     try {
@@ -115,6 +155,10 @@ export const AuthProvider = ({ children }) => {
         throw new Error(errorData.error);
       }
       const data = await response.json();
+
+      //store token in localStorage
+      localStorage.setItem("auth-token", data.token);
+
       setUser(data.user);
       setIsAuthenticated(data?.token);
       setIsLoading(false);
@@ -222,6 +266,7 @@ export const AuthProvider = ({ children }) => {
       setUser(null);
       setIsAuthenticated("");
       setIsLoading(false);
+      localStorage.removeItem("auth-token");
     } catch (error) {
       setError(error.message || "Error logging out");
       setIsLoading(false);

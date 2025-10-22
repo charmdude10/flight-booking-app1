@@ -24,7 +24,8 @@ import FlightSearchCard from "./pages/FlightSearchCard";
 import Booking from "./pages/Booking";
 import AuthContext from "../stateManagement/Auth";
 import AdminDashboard from "./Admin/AdminDashboard";
-import CardPayment from "./components/CardPayment";
+// import CardPayment from "./components/CardPayment";
+import PaymentComplete from "./pages/PaymentComplete";
 
 // protected routes that require authentication
 
@@ -84,7 +85,7 @@ function App() {
             element={<EmailVerificationPage />}
           />
           <Route path="/flightsearchcard" element={<FlightSearchCard />} />
-          <Route path="/cardpayment" element={<CardPayment />} />
+          <Route path="/payment-complete" element={<PaymentComplete />} />
           <Route
             path="/flight-search/booking"
             element={
